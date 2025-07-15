@@ -4,13 +4,19 @@ A premium, enterprise-grade dashboard for tracking and analyzing Programmatic Ma
 
 ## 🚀 Quick Deploy
 
-### Option 1: Vercel (Recommended)
+### Option 1: GitHub Pages (Recommended - Free)
+1. Push this repository to GitHub
+2. Enable GitHub Pages in repository settings
+3. Your app will be live at `https://your-username.github.io/PMP-Tracker/`
+4. See [GitHub Pages Guide](./GITHUB_PAGES_DEPLOYMENT.md) for detailed steps
+
+### Option 2: Vercel
 1. Fork this repository
 2. Go to [vercel.com](https://vercel.com) and sign up
 3. Click "New Project" → Import your forked repo
-4. Deploy! Your app will be live at `https://your-project.vercel.app`
+4. Deploy! Your app will be live at `https://your-project-name.vercel.app`
 
-### Option 2: Netlify
+### Option 3: Netlify
 1. Fork this repository
 2. Go to [netlify.com](https://netlify.com)
 3. Click "New site from Git" → Connect your repo
@@ -69,7 +75,8 @@ The app is currently using mocked data. To connect to real APIs:
 
 ## 📄 Documentation
 
-- [Deployment Guide](./DEPLOYMENT.md)
+- [GitHub Pages Deployment Guide](./GITHUB_PAGES_DEPLOYMENT.md)
+- [General Deployment Guide](./DEPLOYMENT.md)
 - [Product Requirements Document](./PRD.md)
 
 ## 🤝 Contributing

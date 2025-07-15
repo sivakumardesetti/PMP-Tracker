@@ -92,4 +92,4 @@ This project is proprietary software.
 
 ---
 
-**Note**: This is a frontend-only implementation with mocked data. Backend API integration is planned for future releases. 
+**Note**: This is a frontend-only implementation with mocked data. Backend API integration is planned for future releases. # PMP Deal Tracker Dashboard - GitHub Pages Deployment

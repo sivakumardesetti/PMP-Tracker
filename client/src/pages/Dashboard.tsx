@@ -165,17 +165,14 @@ export const Dashboard = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        minWidth: '100vw',
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
         bgcolor: COLORS.bg,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'stretch',
-        justifyContent: 'stretch',
+        justifyContent: 'flex-start',
         p: 0,
         m: 0,
-        overflow: 'hidden',
         position: 'relative',
       }}
     >

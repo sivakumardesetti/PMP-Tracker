@@ -28,7 +28,7 @@ function MainTabs() {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%', minHeight: '100vh' }}>
       <AppBar position="static" color="default" elevation={0} sx={{ borderBottom: '1px solid #e0e0e0', bgcolor: '#fff' }}>
         <Tabs
           value={tab}
@@ -45,7 +45,7 @@ function MainTabs() {
           <Tab label="Deals" />
         </Tabs>
       </AppBar>
-      <Box sx={{ p: 0, minHeight: 'calc(100vh - 56px)', width: '100%' }}>
+      <Box sx={{ p: 0, width: '100%' }}>
         <Fade in={tab === 0} timeout={400} unmountOnExit mountOnEnter>
           <div hidden={tab !== 0}>
             <Dashboard />

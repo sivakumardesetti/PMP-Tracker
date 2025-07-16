@@ -10,30 +10,30 @@ import { BarChart } from '@mui/x-charts/BarChart';
 import { LineChart } from '@mui/x-charts/LineChart';
 import SearchIcon from '@mui/icons-material/Search';
 
-// Premium AdTech Color Palette - Dark Theme
+// Premium AdTech Color Palette
 const COLORS = {
-  primary: '#90caf9',      // Light blue
-  secondary: '#f48fb1',    // Light pink
-  success: '#4ade80',      // Light green
-  warning: '#fbbf24',      // Light amber
-  error: '#f87171',        // Light red
-  info: '#60a5fa',         // Light blue
+  primary: '#6366f1',      // Sophisticated indigo
+  secondary: '#8b5cf6',    // Premium purple
+  success: '#10b981',      // Professional green
+  warning: '#f59e0b',      // Rich amber
+  error: '#ef4444',        // Clean red
+  info: '#3b82f6',         // Tech blue
   
   // Backgrounds
-  bg: '#0a0a0a',           // Dark background
-  surface: 'rgba(26, 26, 26, 0.9)',
-  headerBg: 'rgba(26, 26, 26, 0.95)',
+  bg: '#fafbfc',           // Ultra-light background
+  surface: 'rgba(255, 255, 255, 0.9)',
+  headerBg: 'rgba(255, 255, 255, 0.95)',
   
   // Text
-  textPrimary: '#ffffff',  // White text
-  textSecondary: '#b0b0b0', // Light gray
-  textMuted: '#808080',    // Medium gray
+  textPrimary: '#0f172a',  // Rich dark
+  textSecondary: '#64748b', // Professional gray
+  textMuted: '#94a3b8',    // Subtle gray
   
   // Borders & Effects
-  border: 'rgba(255, 255, 255, 0.08)',
-  hoverBg: 'rgba(144, 202, 249, 0.04)',
-  shadowPrimary: 'rgba(144, 202, 249, 0.25)',
-  shadowSecondary: 'rgba(0, 0, 0, 0.3)',
+  border: 'rgba(15, 23, 42, 0.08)',
+  hoverBg: 'rgba(99, 102, 241, 0.04)',
+  shadowPrimary: 'rgba(99, 102, 241, 0.25)',
+  shadowSecondary: 'rgba(0, 0, 0, 0.1)',
 };
 
 const getHealthColor = (health: string) => {

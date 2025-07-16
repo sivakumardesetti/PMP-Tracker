@@ -7,60 +7,11 @@ import { Deals } from './pages/Deals';
 import { DealDetail } from './pages/DealDetail';
 import { AppBar, Tabs, Tab, Box, Fade } from '@mui/material';
 
-// Dark theme configuration for PMP Tracker
 const theme = createTheme({
   palette: {
-    mode: 'dark',
-    primary: { main: '#90caf9' },
-    secondary: { main: '#f48fb1' },
-    background: { 
-      default: '#0a0a0a', 
-      paper: '#1a1a1a' 
-    },
-    text: {
-      primary: '#ffffff',
-      secondary: '#b0b0b0',
-    },
-    divider: '#333333',
-  },
-  components: {
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#1a1a1a',
-          borderBottom: '1px solid #333333',
-        },
-      },
-    },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#1a1a1a',
-        },
-      },
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#1a1a1a',
-          border: '1px solid #333333',
-        },
-      },
-    },
-    MuiTableContainer: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#1a1a1a',
-        },
-      },
-    },
-    MuiTableCell: {
-      styleOverrides: {
-        root: {
-          borderBottom: '1px solid #333333',
-        },
-      },
-    },
+    primary: { main: '#1976d2' },
+    secondary: { main: '#dc004e' },
+    background: { default: '#f5f5f5', paper: '#fff' },
   },
 });
 
@@ -78,7 +29,7 @@ function MainTabs() {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <AppBar position="static" color="default" elevation={0} sx={{ borderBottom: '1px solid #333333', bgcolor: '#1a1a1a' }}>
+      <AppBar position="static" color="default" elevation={0} sx={{ borderBottom: '1px solid #e0e0e0', bgcolor: '#fff' }}>
         <Tabs
           value={tab}
           onChange={handleTabChange}
@@ -86,19 +37,8 @@ function MainTabs() {
           textColor="primary"
           variant="fullWidth"
           sx={{
-            '& .MuiTab-root': { 
-              fontWeight: 700, 
-              fontSize: 18, 
-              letterSpacing: 0.5,
-              color: '#b0b0b0',
-              '&.Mui-selected': {
-                color: '#90caf9',
-              }
-            },
+            '& .MuiTab-root': { fontWeight: 700, fontSize: 18, letterSpacing: 0.5 },
             minHeight: 56,
-            '& .MuiTabs-indicator': {
-              backgroundColor: '#90caf9',
-            }
           }}
         >
           <Tab label="Dashboard" />

@@ -1,6 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Box, Typography, Paper, Card, CardContent, Fade, List, ListItem, ListItemText, Zoom, TextField, MenuItem, InputAdornment, FormControl, Select } from '@mui/material';
-import Grid from '@mui/material/Grid';
+import { Box, Typography, Paper, Card, CardContent, Fade, List, ListItem, ListItemText, Zoom, TextField, MenuItem, InputAdornment, FormControl, Select, Grid } from '@mui/material';
 import { LineChart } from '@mui/x-charts/LineChart';
 import { BarChart } from '@mui/x-charts/BarChart';
 import { PieChart } from '@mui/x-charts/PieChart';
@@ -9,22 +8,22 @@ import SearchIcon from '@mui/icons-material/Search';
 import { dealsMock } from '../mock/dealsMock';
 
 const COLORS = {
-  primary: '#90caf9',
-  secondary: '#f48fb1',
-  success: '#4ade80',
-  warning: '#fbbf24',
-  error: '#f87171',
-  info: '#60a5fa',
-  bg: '#0a0a0a',
-  surface: 'rgba(26, 26, 26, 0.9)',
-  headerBg: 'rgba(26, 26, 26, 0.95)',
-  textPrimary: '#ffffff',
-  textSecondary: '#b0b0b0',
-  textMuted: '#808080',
-  border: 'rgba(255, 255, 255, 0.08)',
-  hoverBg: 'rgba(144, 202, 249, 0.04)',
-  shadowPrimary: 'rgba(144, 202, 249, 0.25)',
-  shadowSecondary: 'rgba(0, 0, 0, 0.3)',
+  primary: '#6366f1',
+  secondary: '#8b5cf6',
+  success: '#10b981',
+  warning: '#f59e0b',
+  error: '#ef4444',
+  info: '#3b82f6',
+  bg: '#fafbfc',
+  surface: 'rgba(255, 255, 255, 0.9)',
+  headerBg: 'rgba(255, 255, 255, 0.95)',
+  textPrimary: '#0f172a',
+  textSecondary: '#64748b',
+  textMuted: '#94a3b8',
+  border: 'rgba(15, 23, 42, 0.08)',
+  hoverBg: 'rgba(99, 102, 241, 0.04)',
+  shadowPrimary: 'rgba(99, 102, 241, 0.25)',
+  shadowSecondary: 'rgba(0, 0, 0, 0.1)',
 };
 
 const mockNotes = [
@@ -146,9 +145,7 @@ export const Dashboard = () => {
     const groupBy = pieDimension;
     const groupMap = new Map();
     filteredDeals.forEach(deal => {
-      const key = groupBy === 'ssp' ? deal.ssp : 
-                  groupBy === 'dealType' ? deal.dealType : 
-                  groupBy === 'name' ? deal.name : deal.ssp;
+      const key = deal[groupBy];
       if (!groupMap.has(key)) {
         groupMap.set(key, { value: 0, label: key });
       }
@@ -194,10 +191,10 @@ export const Dashboard = () => {
         px: 3,
         py: 2,
         mb: 1,
-        bgcolor: COLORS.surface,
-        boxShadow: '0 2px 8px 0 rgba(0,0,0,0.3)',
+        bgcolor: '#fff',
+        boxShadow: '0 2px 8px 0 rgba(60,60,120,0.06)',
         borderRadius: 0,
-        borderBottom: '1px solid #333333',
+        borderBottom: '1px solid #e5e6ea',
       }}>
         <TextField
           placeholder="Search deals, SSP, owner, or ID"
@@ -335,22 +332,14 @@ export const Dashboard = () => {
         </Typography>
       </Box>
       {/* KPI Cards */}
-      <Box sx={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-        gap: 3, 
-        p: 4, 
-        pb: 0, 
-        width: '100%', 
-        maxWidth: 1600, 
-        mx: 'auto' 
-      }}>
+      <Grid container spacing={3} sx={{ p: 4, pb: 0, width: '100%', maxWidth: 1600, mx: 'auto' }}>
         {kpis.map((kpi, i) => (
-          <Fade in timeout={600 + i * 120} key={kpi.label}>
-            <Card elevation={0} sx={{
+          <Grid item key={kpi.label} xs={12} sm={6} md={3} lg={3} xl={3}>
+            <Fade in timeout={600 + i * 120}>
+              <Card elevation={0} sx={{
                 borderRadius: 4,
                 boxShadow: '0 2px 12px 0 rgba(0,0,0,0.06)',
-                bgcolor: COLORS.surface,
+                bgcolor: '#fff',
                 p: 0,
                 minHeight: 120,
                 display: 'flex',
@@ -373,21 +362,13 @@ export const Dashboard = () => {
                 <Typography variant="caption" sx={{ color: COLORS.textMuted }}>{kpi.caption}</Typography>
               </Card>
             </Fade>
-          ))}
-        </Box>
-        {/* Chart and Timeline Section */}
-        <Box sx={{ 
-          display: 'grid', 
-          gridTemplateColumns: chartType === 'pie' ? '2fr 1fr' : '1fr',
-          gap: 3, 
-          p: 4, 
-          pt: 2, 
-          width: '100%', 
-          maxWidth: 1600, 
-          mx: 'auto', 
-          flex: 1 
-        }}>
-          <Paper elevation={0} sx={{ borderRadius: 4, boxShadow: '0 2px 12px 0 rgba(0,0,0,0.06)', bgcolor: COLORS.surface, p: 3, height: '100%' }}>
+          </Grid>
+        ))}
+      </Grid>
+      {/* Chart and Timeline Section */}
+      <Grid container spacing={3} sx={{ p: 4, pt: 2, width: '100%', maxWidth: 1600, mx: 'auto', flex: 1 }}>
+        <Grid item xs={12} md={chartType === 'pie' ? 8 : 12}>
+          <Paper elevation={0} sx={{ borderRadius: 4, boxShadow: '0 2px 12px 0 rgba(0,0,0,0.06)', bgcolor: '#fff', p: 3, height: '100%' }}>
             <Typography variant="h6" sx={{ fontWeight: 700, color: COLORS.primary, mb: 2 }}>Performance Trends</Typography>
             <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mb: 2, mt: 1 }}>
               <FormControl size="small" sx={{ minWidth: 120 }}>
@@ -486,8 +467,10 @@ export const Dashboard = () => {
               </>
             )}
           </Paper>
-          {/* Timeline Card */}
-          <Paper elevation={0} sx={{ borderRadius: 4, boxShadow: '0 2px 12px 0 rgba(0,0,0,0.06)', bgcolor: COLORS.surface, p: 3, height: '100%' }}>
+        </Grid>
+        {/* No pie chart card below when not in pie mode */}
+        <Grid item xs={12} md={3}>
+          <Paper elevation={0} sx={{ borderRadius: 4, boxShadow: '0 2px 12px 0 rgba(0,0,0,0.06)', bgcolor: '#fff', p: 3, height: '100%' }}>
             <Typography variant="h6" sx={{ fontWeight: 700, color: COLORS.primary, mb: 2 }}>Timeline</Typography>
             <List dense>
               {mockNotes.map((note, i) => (
@@ -502,7 +485,8 @@ export const Dashboard = () => {
               ))}
             </List>
           </Paper>
-        </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 }; 

@@ -306,9 +306,7 @@ export const Deals = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        minWidth: '100vw',
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
         bgcolor: COLORS.bg,
         display: 'flex',
         flexDirection: 'column',
@@ -316,7 +314,6 @@ export const Deals = () => {
         justifyContent: 'stretch',
         p: 0,
         m: 0,
-        overflow: 'hidden',
         position: 'relative',
       }}
     >
@@ -438,8 +435,7 @@ export const Deals = () => {
         elevation={0}
         sx={{
           flex: 1,
-          width: '100vw',
-          height: '100%',
+          width: '100%',
           borderRadius: 0,
           boxShadow: 'none',
           overflow: 'auto',
